@@ -1,0 +1,78 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.button {
+  max-width: 140px;
+  height: 26px;
+  border-radius: 8px;
+  background-color: var(--red);
+  color: var(--white);
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: .2s ease;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.container {
+  height: 58vh;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.container::-webkit-scrollbar {
+  width: .3rem;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: var(--gray-300);
+  height: 1rem;
+}
+
+.container::-moz-progress-bar {
+  background-color: var(--gray-300);
+  width: .3rem;
+  height: 1rem;
+}
+
+.container > * {
+  margin-bottom: 10px;
+}
+
+.chats {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.sender_name {
+  text-align: right;
+}
+
+.message_recipient {
+  background-color: var(--green-blue);
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  word-break: break-all;
+}
+
+.message_sender {
+  background-color: var(--green);
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  font-size: 15px;
+  word-break: break-all;
+}
+

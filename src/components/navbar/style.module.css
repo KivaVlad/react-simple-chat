@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  padding: 0 10px 10px 0;
+  font-weight: bold;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.user {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gray-400);
+}
