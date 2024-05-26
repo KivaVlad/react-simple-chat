@@ -10,11 +10,11 @@ function Auth() {
   const [user, setUser] = useState('');
 
   const callbacks = {
+    // Авторизация нового пользователя
     onSubmit: useCallback(() => {
       const newUser = {id: genUUID(), name: user};
       socket.emit('login', newUser);
-      localStorage.setItem('user', user);
-      localStorage.setItem('newUser', JSON.stringify(newUser));
+      localStorage.setItem('user', JSON.stringify(newUser));
       navigate('/chat');
     }, [user]),
   }

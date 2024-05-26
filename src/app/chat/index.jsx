@@ -14,26 +14,33 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
 
+  const storageUser = JSON.parse(localStorage.getItem('user'));
+  const currentUser = users.find((item) => item.id === storageUser.id);
+
   const callbacks = {
-    onSubmit: useCallback(() => {
-      socket.emit('message', {
+    // Создание нового сообщения
+    onCreate: useCallback(() => {
+      socket.emit('create', {
         id: genUUID(),
         text: message,
-        name: localStorage.getItem('user'),
+        name: currentUser.name,
         socketID: socket.id,
       })
     }, [socket, message]),
+    // Удаление выбранного сообщения
+    onRemove: useCallback((item) => {
+      socket.emit('remove', item)
+    }, []),
+    // Выход из чата
     onAlive: useCallback(() => {
-      const user = JSON.parse(localStorage.getItem('newUser'));
-      socket.emit('logout', user);
+      socket.emit('logout', currentUser);
       localStorage.removeItem('user');
-      localStorage.removeItem('newUser');
       navigate('/');
-    }, [socket]),
+    }, [socket, currentUser]),
   }
 
   useEffect(() => {
-    socket.on('response', (data) => setMessages([...messages, data]));
+    socket.on('messages', (data) =>  setMessages(data));
     socket.on('users', (data) => setUsers(data));
   }, [socket, messages])
 
@@ -41,8 +48,8 @@ function Chat() {
     <PageLayout>
       <ChatLayout 
         navbar={<Navbar users={users}/>}
-        board={<ChatBoard messages={messages} onClick={callbacks.onAlive}/>}
-        message={<MessageForm value={message} setValue={setMessage} onSubmit={callbacks.onSubmit} />}
+        board={<ChatBoard user={currentUser} messages={messages} onClick={callbacks.onAlive} onRemove={callbacks.onRemove}/>}
+        form={<MessageForm value={message} setValue={setMessage} onSubmit={callbacks.onCreate}/>}
       />
     </PageLayout>
   )

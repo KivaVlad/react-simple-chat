@@ -1,14 +1,10 @@
 import {memo} from "react";
-import {cn as bem} from "@bem-react/classname";
-import "./style.css";
+import s from "./style.module.css";
 
 function PageLayout({children}) {
-
-  const cn = bem('PageLayout');
-
   return (
-    <div className={cn()}>
-      <div className={cn('content')}>
+    <div className={s.container}>
+      <div className={s.content}>
         {children}
       </div>
     </div>

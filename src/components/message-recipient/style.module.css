@@ -1,0 +1,42 @@
+.chats {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.message_recipient {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: var(--green-blue);
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  word-break: break-all;
+}
+
+.message_recipient p {
+  width: 85%;
+}
+
+.message_recipient button {
+  opacity: 0;
+  transition: .2s ease;
+}
+
+.message_recipient button:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .message_recipient {
+    max-width: 200px;
+    width: 100%;
+  }
+
+  .message_recipient button {
+    opacity: 1;
+    margin-top: auto;
+  }
+}

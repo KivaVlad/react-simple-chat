@@ -1,4 +1,4 @@
-.ChatLayout {
+.chat {
   display: flex;
   width: 100%;
   min-height: 70vh;
@@ -6,7 +6,7 @@
   box-shadow: 0px 0px 20px 0px #00000026;
 }
 
-.ChatLayout-main {
+.main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,10 +15,16 @@
   min-height: 70vh;
 }
 
-.ChatLayout-navbar {
+.navbar {
   border-right: 1px solid var(--gray-200);
 }
 
-.ChatLayout-message {
+.form {
   padding-left: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
 }

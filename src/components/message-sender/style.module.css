@@ -1,0 +1,47 @@
+.chats {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.sender_name {
+  text-align: right;
+}
+
+.message_sender {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: var(--green);
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  font-size: 15px;
+  word-break: break-all;
+}
+
+.message_sender p {
+  width: 85%;
+}
+
+.message_sender button {
+  opacity: 0;
+  transition: .2s ease;
+}
+
+.message_sender button:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .message_sender {
+    max-width: 160px;
+    width: 100%;
+  }
+
+  .message_sender button {
+    opacity: 1;
+    margin-top: auto;
+  }
+}

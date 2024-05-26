@@ -1,7 +1,11 @@
 import {memo} from "react";
+import MessageSender from "../message-sender";
+import MessageRecipient from "../message-recipient";
 import s from "./style.module.css";
 
-function ChatBoard({messages, onClick}) {
+function ChatBoard(props) {
+  const {user, messages, onClick, onRemove} = props;
+
   return (
     <div className={s.chat}>
       <div className={s.header}>
@@ -9,24 +13,13 @@ function ChatBoard({messages, onClick}) {
       </div>
       
       <div className={s.container}>
-        {messages.map(elem => (
-          elem.name === localStorage.getItem('user') ? (
-            <div key={elem.id} className={s.chats}>
-              <p className={s.sender_name}>Вы:</p>
-              <div className={s.message_sender}>
-                <p>{elem.text}</p>
-              </div>
-            </div>
-          ) : (
-            <div key={elem.id} className={s.chats}>
-              <p>{elem.name}</p>
-              <div className={s.message_recipient}>
-                <p>{elem.text}</p>
-              </div>
-            </div>
-          )
+        {messages.map(item => (
+          item.name === user.name 
+            ? <MessageSender key={item.id} item={item} onRemove={onRemove}/>
+            : <MessageRecipient key={item.id} item={item} onRemove={onRemove}/>
         ))}
       </div>
+      
     </div>
   )
 }

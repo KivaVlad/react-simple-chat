@@ -1,21 +1,18 @@
 import {memo} from "react";
-import {cn as bem} from "@bem-react/classname";
-import "./style.css";
+import s from "./style.module.css";
 
-function ChatLayout({navbar, board, message}) {
-  const cn = bem('ChatLayout');
-
+function ChatLayout({navbar, board, form}) {
   return (
-    <div className={cn()}>
-      <div className={cn('navbar')}>
+    <div className={s.chat}>
+      <div className={s.navbar}>
         {navbar}
       </div>
-      <div className={cn('main')}>
-        <div className={cn('board')}>
+      <div className={s.main}>
+        <div className={s.board}>
           {board}
         </div>
-        <div className={cn('message')}>
-          {message}
+        <div className={s.form}>
+          {form}
         </div>
       </div>
     </div>

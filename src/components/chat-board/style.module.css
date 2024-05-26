@@ -48,31 +48,9 @@
   margin-bottom: 10px;
 }
 
-.chats {
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.sender_name {
-  text-align: right;
-}
-
-.message_recipient {
-  background-color: var(--green-blue);
-  width: 300px;
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 15px;
-  word-break: break-all;
-}
-
-.message_sender {
-  background-color: var(--green);
-  max-width: 300px;
-  padding: 10px;
-  border-radius: 10px;
-  margin-left: auto;
-  font-size: 15px;
-  word-break: break-all;
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 20px 0;
+  }
 }
 
