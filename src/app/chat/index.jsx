@@ -30,7 +30,7 @@ function Chat() {
     // Удаление выбранного сообщения
     onRemove: useCallback((item) => {
       socket.emit('remove', item)
-    }, []),
+    }, [socket]),
     // Выход из чата
     onAlive: useCallback(() => {
       socket.emit('logout', currentUser);
@@ -42,7 +42,7 @@ function Chat() {
   useEffect(() => {
     socket.on('messages', (data) =>  setMessages(data));
     socket.on('users', (data) => setUsers(data));
-  }, [socket, messages])
+  }, [socket])
 
   return (
     <PageLayout>
