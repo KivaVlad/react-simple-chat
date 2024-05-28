@@ -11,7 +11,7 @@ function Auth() {
 
   const callbacks = {
     // Авторизация нового пользователя
-    onSubmit: useCallback(() => {
+    onLogin: useCallback(() => {
       const newUser = {id: genUUID(), name: user};
       socket.emit('login', newUser);
       localStorage.setItem('user', JSON.stringify(newUser));
@@ -21,7 +21,7 @@ function Auth() {
 
   return (
     <PageLayout>
-      <LoginForm value={user} onChange={setUser} onSubmit={callbacks.onSubmit}/>
+      <LoginForm value={user} onChange={setUser} onSubmit={callbacks.onLogin}/>
     </PageLayout>
   )
 }

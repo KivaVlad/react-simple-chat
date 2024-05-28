@@ -14,7 +14,7 @@ function ChatBoard(props) {
       
       <div className={s.container}>
         {messages.map(item => (
-          item.name === user.name 
+          item.sender.id === user.id 
             ? <MessageSender key={item.id} item={item} onRemove={onRemove}/>
             : <MessageRecipient key={item.id} item={item} onRemove={onRemove}/>
         ))}

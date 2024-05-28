@@ -21,3 +21,9 @@
   font-weight: 500;
   color: var(--gray-400);
 }
+
+.current_user {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--green-blue);
+}

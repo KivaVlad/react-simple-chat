@@ -24,6 +24,7 @@ function Chat() {
         id: genUUID(),
         text: message,
         name: currentUser.name,
+        sender: {id: currentUser.id, name: currentUser.name},
         socketID: socket.id,
       })
     }, [socket, message]),
@@ -47,7 +48,7 @@ function Chat() {
   return (
     <PageLayout>
       <ChatLayout 
-        navbar={<Navbar users={users}/>}
+        navbar={<Navbar currentUser={currentUser} users={users}/>}
         board={<ChatBoard user={currentUser} messages={messages} onClick={callbacks.onAlive} onRemove={callbacks.onRemove}/>}
         form={<MessageForm value={message} setValue={setMessage} onSubmit={callbacks.onCreate}/>}
       />

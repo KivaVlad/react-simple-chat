@@ -15,7 +15,7 @@ const users = [];
 const messages = [];
 
 app.get('/api', (request, response) => {
-  response.json({users})
+  response.json({users, messages})
 })
 
 // Поключение Websocket
